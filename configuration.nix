@@ -5,17 +5,17 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable =
+    true; # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -49,9 +49,7 @@
   };
 
   #VIA (KEYBOARD)
-  services.udev.packages = with pkgs; [
-    via
-  ];
+  services.udev.packages = with pkgs; [ via ];
 
   # DISPLAY/HYPRLAND REQUIREMENTS
   services.xserver.enable = true;
@@ -62,7 +60,7 @@
   };
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
@@ -91,16 +89,17 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sponge = {
     isNormalUser = true;
     description = "sponge";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "vboxusers" ];
-    packages = with pkgs; [
-      # flatpak
-      # gnome.gnome-software
-    ];
+    packages = with pkgs;
+      [
+        # flatpak
+        # gnome.gnome-software
+      ];
   };
 
   # Allow unfree packages
@@ -108,10 +107,11 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      #  wget
+    ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -128,7 +128,6 @@
 
   # Open ports in the firewall.
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 52525 9000 ];
   networking.firewall.allowedUDPPorts = [ 52525 9000 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
@@ -152,7 +151,7 @@
   #   draganddrop = true;
   #   clipboard = true;
   # };
-  
+
   # File Manager
   programs.thunar.enable = true;
   services.gvfs.enable = true;
@@ -161,9 +160,12 @@
   # STEAM
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall =
+      true; # Open ports in the firewall for Steam Local Network Game Transfers
     gamescopeSession.enable = true;
   };
   hardware.opengl = {
@@ -172,7 +174,7 @@
     driSupport32Bit = true;
     # extraPackages = [];
     # extraPackages32 = [];
-  };  
+  };
   fileSystems."/mnt/speedyboy" = {
     device = "/dev/nvme0n1";
     fsType = "ext4";
