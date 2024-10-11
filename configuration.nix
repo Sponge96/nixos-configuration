@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -101,6 +101,7 @@
         # gnome.gnome-software
       ];
   };
+  home-manager = { extraSpecialArgs = { inherit inputs; }; };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -182,4 +183,7 @@
   };
   # For applications being shit
   services.flatpak.enable = true;
+
+  # flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
