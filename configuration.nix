@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, pkgs-unstable, lib, inputs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -105,7 +105,10 @@
   };
   home-manager = {
     # also pass inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {
+      inherit pkgs-unstable;
+      inherit inputs;
+    };
     users = { "sponge" = import ./home.nix; };
   };
   # Allow unfree packages
@@ -175,7 +178,7 @@
       true; # Open ports in the firewall for Steam Local Network Game Transfers
     gamescopeSession.enable = true;
   };
-  hardware.graphics = { enable = true; };
+  hardware.opengl = { enable = true; };
   fileSystems."/mnt/speedyboy" = {
     device = "/dev/nvme0n1";
     fsType = "ext4";
