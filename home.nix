@@ -39,6 +39,8 @@
     # Games
     ./home-manager/proton.nix
     ./home-manager/r2modman.nix
+    # Temp
+    ./home-manager/spotify.nix
   ];
 
   # This value determines the Home Manager release that your configuration is

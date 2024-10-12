@@ -15,8 +15,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable =
-    true; # Enables wireless support via wpa_supplicant.
+  networking.wireless = {
+    enable = true;
+    networks."VM5849858".psk = "vtm4ynxkZrj6";
+  }; # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -81,7 +83,6 @@
     open = false;
   };
   # SOUND
-  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -177,8 +178,6 @@
   };
   hardware.opengl = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
     # extraPackages = [];
     # extraPackages32 = [];
   };
