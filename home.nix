@@ -7,7 +7,6 @@
   home.homeDirectory = "/home/sponge";
 
   imports = [
-    ./home-manager/spotify.nix
     # Core
     ./home-manager/hyprland.nix # OS frontend
     ./home-manager/kitty.nix # term
@@ -28,6 +27,7 @@
     ./home-manager/1password.nix
     ./home-manager/qbittorrent.nix
     ./home-manager/via.nix
+    ./home-manager/spotify.nix
     # Work
     ./home-manager/teams.nix
     ./home-manager/obsidian.nix
