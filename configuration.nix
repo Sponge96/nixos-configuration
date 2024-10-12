@@ -11,6 +11,7 @@
     ./system_configs/steam.nix
     ./system_configs/hyprland.nix
     ./system_configs/via.nix
+    ./system_configs/thunar.nix
   ];
 
   # Bootloader.
@@ -53,7 +54,6 @@
     layout = "us";
     variant = "";
   };
-
 
   # SOUND
   security.rtkit.enable = true;
@@ -135,10 +135,6 @@
   #   clipboard = true;
   # };
 
-  # File Manager
-  programs.thunar.enable = true;
-  services.gvfs.enable = true;
-  programs.xfconf.enable = true;
 
   # For applications being shit
   services.flatpak.enable = true;
