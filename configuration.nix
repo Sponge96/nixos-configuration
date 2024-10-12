@@ -8,6 +8,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+    ./system_configs/steam.nix
   ];
 
   # Bootloader.
@@ -167,23 +168,6 @@
   services.gvfs.enable = true;
   programs.xfconf.enable = true;
 
-  # STEAM
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall =
-      true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall =
-      true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall =
-      true; # Open ports in the firewall for Steam Local Network Game Transfers
-    gamescopeSession.enable = true;
-  };
-  hardware.opengl = { enable = true; };
-  fileSystems."/mnt/speedyboy" = {
-    device = "/dev/nvme0n1";
-    fsType = "ext4";
-    options = [ "nofail" ];
-  };
   # For applications being shit
   services.flatpak.enable = true;
 
