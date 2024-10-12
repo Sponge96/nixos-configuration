@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -8,37 +8,37 @@
 
   imports = [
     # Core
-    ./home-manager/hyprland.nix # OS frontend
-    ./home-manager/kitty.nix # term
-    ./home-manager/rofi-wayland.nix # app launcher
-    ./home-manager/swww.nix # background
-    ./home-manager/dunst.nix # notifications
-    ./home-manager/waybar.nix # toolbar
-    ./home-manager/fonts.nix # system fonts
-    ./home-manager/hyprpicker.nix # color picker
-    ./home-manager/hyprshot.nix # screenshots
-    ./home-manager/theme.nix # system themes
-    ./home-manager/pavucontrol.nix # audio controller
-    ./home-manager/nvitop.nix # process manager/stat
-    ./home-manager/unzip.nix # zipping
+    ./hyprland.nix # OS frontend
+    ./kitty.nix # term
+    ./rofi-wayland.nix # app launcher
+    ./swww.nix # background
+    ./dunst.nix # notifications
+    ./waybar.nix # toolbar
+    ./fonts.nix # system fonts
+    ./hyprpicker.nix # color picker
+    ./hyprshot.nix # screenshots
+    ./theme.nix # system themes
+    ./pavucontrol.nix # audio controller
+    ./nvitop.nix # process manager/stat
+    ./unzip.nix # zipping
     # Programs
-    ./home-manager/firefox.nix
-    ./home-manager/discord.nix
-    ./home-manager/1password.nix
-    ./home-manager/qbittorrent.nix
-    ./home-manager/via.nix
+    ./firefox.nix
+    ./discord.nix
+    ./1password.nix
+    ./qbittorrent.nix
+    ./via.nix
     # Work
-    ./home-manager/teams.nix
-    ./home-manager/obsidian.nix
-    ./home-manager/python.nix
+    ./teams.nix
+    ./obsidian.nix
+    ./python.nix
     # Terminal Utils
-    ./home-manager/helix.nix
-    ./home-manager/zoxide.nix
-    ./home-manager/git.nix
-    ./home-manager/typetest.nix
+    ./helix.nix
+    ./zoxide.nix
+    ./git.nix
+    ./typetest.nix
     # Games
-    ./home-manager/proton.nix
-    ./home-manager/r2modman.nix
+    ./proton.nix
+    ./r2modman.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
