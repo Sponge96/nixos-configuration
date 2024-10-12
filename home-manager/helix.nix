@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ nixfmt black ];
+  home.packages = with pkgs; [ nixfmt-classic black ];
   programs.helix = {
     enable = true;
     settings = {
