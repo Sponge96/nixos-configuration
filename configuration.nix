@@ -105,10 +105,8 @@
   };
   home-manager = {
     # also pass inputs to home-manager modules
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "sponge" = import ./home.nix;
-    };
+    extraSpecialArgs = { inherit inputs; };
+    users = { "sponge" = import ./home.nix; };
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -176,9 +174,7 @@
       true; # Open ports in the firewall for Steam Local Network Game Transfers
     gamescopeSession.enable = true;
   };
-  hardware.graphics = {
-    enable = true;
-  };
+  hardware.graphics = { enable = true; };
   fileSystems."/mnt/speedyboy" = {
     device = "/dev/nvme0n1";
     fsType = "ext4";
