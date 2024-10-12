@@ -7,6 +7,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
   ];
 
   # Bootloader.
@@ -101,8 +102,13 @@
         # gnome.gnome-software
       ];
   };
-  home-manager = { extraSpecialArgs = { inherit inputs; }; };
-
+  home-manager = {
+    # also pass inputs to home-manager modules
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "sponge" = import ./home.nix;
+    };
+  };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
