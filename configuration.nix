@@ -118,19 +118,6 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  # VM
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableExtensionPack = true;
-  };
-
-  # virtualisation.virtualbox.guest = {
-  #   enable = true;
-  #   draganddrop = true;
-  #   clipboard = true;
-  # };
-
-
   # For applications being shit
   services.flatpak.enable = true;
 
