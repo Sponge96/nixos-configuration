@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  hardware.opengl = { enable = true; };
   programs.steam = {
     enable = true;
     remotePlay.openFirewall =
@@ -11,6 +10,7 @@
       true; # Open ports in the firewall for Steam Local Network Game Transfers
     gamescopeSession.enable = true;
   };
+  hardware.opengl = { enable = true; };
   # mounts steamlib drive
   fileSystems."/mnt/speedyboy" = {
     device = "/dev/nvme0n1";
