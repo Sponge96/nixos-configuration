@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -7,6 +7,7 @@
   home.homeDirectory = "/home/sponge";
 
   imports = [
+    ./home-manager/spotify.nix
     # Core
     ./home-manager/hyprland.nix # OS frontend
     ./home-manager/kitty.nix # term
@@ -39,8 +40,6 @@
     # Games
     ./home-manager/proton.nix
     ./home-manager/r2modman.nix
-    # Temp
-    ./home-manager/spotify.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
