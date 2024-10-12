@@ -6,12 +6,13 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+    ./hardware-configuration.nix
     ./system_configs/steam.nix
     ./system_configs/hyprland.nix
     ./system_configs/via.nix
     ./system_configs/thunar.nix
+    ./system_configs/firewall.nix
   ];
 
   # Bootloader.
@@ -107,13 +108,6 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  networking.firewall.enable = true;
-  networking.firewall.allowedUDPPorts = [ 52525 ];
-  networking.firewall.allowedTCPPorts = [ 52525 ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
