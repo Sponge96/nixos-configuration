@@ -10,6 +10,7 @@
     inputs.home-manager.nixosModules.default
     ./system_configs/steam.nix
     ./system_configs/hyprland.nix
+    ./system_configs/via.nix
   ];
 
   # Bootloader.
@@ -53,8 +54,6 @@
     variant = "";
   };
 
-  #VIA (KEYBOARD)
-  services.udev.packages = with pkgs; [ via ];
 
   # SOUND
   security.rtkit.enable = true;
