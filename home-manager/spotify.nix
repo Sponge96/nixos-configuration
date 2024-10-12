@@ -11,7 +11,8 @@
         hidePodcasts
         shuffle # shuffle+ (special characters are sanitized out of extension names)
         trashbin
-
+        betterGenres
+        history
       ];
       theme = spicePkgs.themes.dracula;
       colorScheme = "dracula";
