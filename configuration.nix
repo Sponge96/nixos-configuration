@@ -13,6 +13,7 @@
     ./system_configs/via.nix
     ./system_configs/thunar.nix
     ./system_configs/firewall.nix
+    ./system_configs/virtualbox.nix
   ];
 
   # Bootloader.
