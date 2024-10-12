@@ -46,9 +46,9 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   #VIA (KEYBOARD)
@@ -176,10 +176,8 @@
       true; # Open ports in the firewall for Steam Local Network Game Transfers
     gamescopeSession.enable = true;
   };
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    # extraPackages = [];
-    # extraPackages32 = [];
   };
   fileSystems."/mnt/speedyboy" = {
     device = "/dev/nvme0n1";
