@@ -104,13 +104,13 @@
       ];
   };
   home-manager = {
-    # also pass inputs to home-manager modules
     extraSpecialArgs = {
       inherit pkgs-unstable;
       inherit inputs;
     };
     users = { "sponge" = import ./home.nix; };
   };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
