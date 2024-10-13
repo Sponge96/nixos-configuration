@@ -13,16 +13,24 @@
     # Applicaitons
     ./configs/system/applications/virtualbox.nix
     ./configs/system/applications/via.nix
+    ./configs/system/applications/flatpak.nix
     # Games
     ./configs/system/games/steam.nix
     # Hardware
     ./hardware-configuration.nix
     ./configs/system/hardware/home_network.nix
+    ./configs/system/hardware/sound.nix
     # Security
     ./configs/system/security/firewall.nix
     # Utils
     ./configs/system/utils/garbage_collection.nix
   ];
+
+  # flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -71,16 +79,9 @@
     users = { "sponge" = import ./home.nix; };
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs;
-    [
-      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      #  wget
-    ];
+  environment.systemPackages = with pkgs; [ ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -102,10 +103,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
-  # For applications being shit
-  services.flatpak.enable = true;
-
-  # flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
