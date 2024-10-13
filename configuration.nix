@@ -26,6 +26,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 2w";
+  };
+  nix.settings.auto-optimise-store = true;
+
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless = {
     enable = true;
