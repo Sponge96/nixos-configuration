@@ -9,6 +9,7 @@
     # Core
     inputs.home-manager.nixosModules.default
     ../modules/system/core/hyprland.nix
+    ../modules/system/core/nvidia.nix
     ../modules/system/core/thunar.nix
     # Applicaitons
     ../modules/system/applications/virtualbox.nix
