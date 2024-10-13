@@ -6,14 +6,20 @@
 
 {
   imports = [ # Include the results of the hardware scan.
+    # Core
     inputs.home-manager.nixosModules.default
+    ./configs/system/core/hyprland.nix
+    ./configs/system/core/thunar.nix
+    # Applicaitons
+    ./configs/system/applications/virtualbox.nix
+    ./configs/system/applications/via.nix
+    # Games
+    ./configs/system/games/steam.nix
+    # Hardware
     ./hardware-configuration.nix
-    ./system_configs/steam.nix
-    ./system_configs/hyprland.nix
-    ./system_configs/via.nix
-    ./system_configs/thunar.nix
-    ./system_configs/firewall.nix
-    ./system_configs/virtualbox.nix
+    # Security
+    ./configs/system/security/firewall.nix
+    # Utils
   ];
 
   # Bootloader.
