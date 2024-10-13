@@ -15,15 +15,26 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem rec {
+  outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs:
+    let
+      profile = "home";
       system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-        pkgs-unstable = import nixpkgs-unstable { inherit system; };
+    in {
+      nixosConfigurations.default = nixpkgs.lib.nixosSystem rec {
+        inherit system; # Using the variable instead of repeating the string
+
+        specialArgs = {
+          inherit inputs;
+          pkgs-unstable = import nixpkgs-unstable { inherit system; };
+        };
+
+        modules = [
+          # Using string interpolation to construct the path with profile variable
+          ./configs/.${profile}/configuration.nix
+
+          # Including the home-manager module from inputs
+          inputs.home-manager.nixosModules.default
+        ];
       };
-      modules =
-        [ ./configuration.nix inputs.home-manager.nixosModules.default ];
     };
-  };
 }
