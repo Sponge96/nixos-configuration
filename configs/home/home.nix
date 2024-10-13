@@ -39,6 +39,7 @@
     ../modules/user/utils/zoxide.nix
     ../modules/user/utils/git.nix
     ../modules/user/utils/typetest.nix
+    ../modules/user/utils/bash.nix
     # Games
     ../modules/user/games/proton.nix
     ../modules/user/games/r2modman.nix
