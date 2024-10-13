@@ -8,22 +8,22 @@
   imports = [ # Include the results of the hardware scan.
     # Core
     inputs.home-manager.nixosModules.default
-    ./modules/system/core/hyprland.nix
-    ./modules/system/core/thunar.nix
+    ../modules/system/core/hyprland.nix
+    ../modules/system/core/thunar.nix
     # Applicaitons
-    ./modules/system/applications/virtualbox.nix
-    ./modules/system/applications/via.nix
-    ./modules/system/applications/flatpak.nix
+    ../modules/system/applications/virtualbox.nix
+    ../modules/system/applications/via.nix
+    ../modules/system/applications/flatpak.nix
     # Games
-    ./modules/system/games/steam.nix
+    ../modules/system/games/steam.nix
     # Hardware
     ./hardware-configuration.nix
-    ./modules/system/hardware/home_network.nix
-    ./modules/system/hardware/sound.nix
+    ../modules/system/hardware/home_network.nix
+    ../modules/system/hardware/sound.nix
     # Security
-    ./modules/system/security/firewall.nix
+    ../modules/system/security/firewall.nix
     # Utils
-    ./modules/system/utils/garbage_collection.nix
+    ../modules/system/utils/garbage_collection.nix
   ];
 
   # flakes
