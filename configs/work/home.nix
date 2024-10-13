@@ -38,6 +38,7 @@
     ../modules/user/utils/zoxide.nix
     ../modules/user/utils/git.nix
     ../modules/user/utils/typetest.nix
+    ../modules/user/utils/bash.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
