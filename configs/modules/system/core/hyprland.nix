@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # DISPLAY/HYPRLAND REQUIREMENTS
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -12,4 +9,6 @@
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 }
