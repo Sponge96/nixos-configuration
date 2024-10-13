@@ -17,7 +17,7 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs:
     let
-      profile = "work";
+      profile = "home";
       system = "x86_64-linux";
     in {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem rec {
