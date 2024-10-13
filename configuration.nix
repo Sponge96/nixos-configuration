@@ -17,34 +17,16 @@
     ./configs/system/games/steam.nix
     # Hardware
     ./hardware-configuration.nix
+    ./configs/system/hardware/home_network.nix
     # Security
     ./configs/system/security/firewall.nix
     # Utils
+    ./configs/system/utils/garbage_collection.nix
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 2w";
-  };
-  nix.settings.auto-optimise-store = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless = {
-    enable = true;
-    networks."VM5849858".psk = "vtm4ynxkZrj6";
-  }; # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -68,16 +50,6 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
-  };
-
-  # SOUND
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
