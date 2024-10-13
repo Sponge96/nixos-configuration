@@ -8,38 +8,40 @@
 
   imports = [
     # Core
-    ./home-manager/hyprland.nix # OS frontend
-    ./home-manager/kitty.nix # term
-    ./home-manager/rofi-wayland.nix # app launcher
-    ./home-manager/swww.nix # background
-    ./home-manager/dunst.nix # notifications
-    ./home-manager/waybar.nix # toolbar
-    ./home-manager/fonts.nix # system fonts
-    ./home-manager/hyprpicker.nix # color picker
-    ./home-manager/hyprshot.nix # screenshots
-    ./home-manager/theme.nix # system themes
-    ./home-manager/pavucontrol.nix # audio controller
-    ./home-manager/nvitop.nix # process manager/stat
-    ./home-manager/unzip.nix # zipping
-    # Programs
-    ./home-manager/firefox.nix
-    ./home-manager/discord.nix
-    ./home-manager/1password.nix
-    ./home-manager/qbittorrent.nix
-    ./home-manager/via.nix
-    ./home-manager/spotify.nix
+    ./configs/user/core/kitty.nix
+    ./configs/user/core/helix.nix
+    ./configs/user/core/hyprland.nix
+    ./configs/user/core/rofi-wayland.nix
+    ./configs/user/core/swww.nix
+    ./configs/user/core/dunst.nix
+    ./configs/user/core/waybar.nix
+    ./configs/user/core/hyprpicker.nix
+    ./configs/user/core/hyprshot.nix
+    ./configs/user/core/pavucontrol.nix
+    ./configs/user/core/nvitop.nix
+    # Style
+    ./configs/user/style/theme.nix
+    ./configs/user/style/fonts.nix
+    # Applications
+    ./configs/user/applications/firefox.nix
+    ./configs/user/applications/discord.nix
+    ./configs/user/applications/1password.nix
+    ./configs/user/applications/qbittorrent.nix
+    ./configs/user/applications/via.nix
+    ./configs/user/applications/spotify.nix
+    ./configs/user/applications/obsidian.nix
     # Work
-    ./home-manager/teams.nix
-    ./home-manager/obsidian.nix
-    ./home-manager/python.nix
-    # Terminal Utils
-    ./home-manager/helix.nix
-    ./home-manager/zoxide.nix
-    ./home-manager/git.nix
-    ./home-manager/typetest.nix
+    ./configs/user/work/teams.nix
+    # Development
+    ./configs/user/development/python.nix
+    # Utils
+    ./configs/user/utils/unzip.nix
+    ./configs/user/utils/zoxide.nix
+    ./configs/user/utils/git.nix
+    ./configs/user/utils/typetest.nix
     # Games
-    ./home-manager/proton.nix
-    ./home-manager/r2modman.nix
+    ./configs/user/games/proton.nix
+    ./configs/user/games/r2modman.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
