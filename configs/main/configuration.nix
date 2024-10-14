@@ -15,7 +15,7 @@
     ../modules/system/applications/virtualbox.nix
     ../modules/system/applications/via.nix
     ../modules/system/applications/flatpak.nix
-    ../modules/system/application/firefox.nix
+    ../modules/system/applications/firefox.nix
     # Games
     ../modules/system/games/steam.nix
     # Hardware
