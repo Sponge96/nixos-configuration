@@ -23,7 +23,6 @@
     ../modules/user/style/theme.nix
     ../modules/user/style/fonts.nix
     # Applications
-    ../modules/user/applications/firefox.nix
     ../modules/user/applications/discord.nix
     ../modules/user/applications/1password.nix
     ../modules/user/applications/qbittorrent.nix
