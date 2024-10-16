@@ -11,12 +11,13 @@
     ../modules/system/core/hyprland.nix
     ../modules/system/core/nvidia.nix
     ../modules/system/core/thunar.nix
-    # Applicaitons
+    # Applications
     ../modules/system/applications/virtualbox.nix
     ../modules/system/applications/via.nix
     # Hardware
     ./hardware-configuration.nix
     ../modules/system/hardware/sound.nix
+    ../modules/system/hardware/grub_boot.nix
     # Utils
     ../modules/system/utils/garbage_collection.nix
   ];
@@ -26,10 +27,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
