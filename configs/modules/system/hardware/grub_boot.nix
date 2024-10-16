@@ -1,4 +1,4 @@
-{ profile, ... };
+{ profile, ... }:
 
 {
   boot.loader = {

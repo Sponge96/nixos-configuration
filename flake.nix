@@ -21,10 +21,9 @@
       system = "x86_64-linux";
     in {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem rec {
-        inherit system; # Using the variable instead of repeating the string
-
         specialArgs = {
           inherit inputs;
+          inherit profile;
           pkgs-unstable = import nixpkgs-unstable { inherit system; };
         };
 
