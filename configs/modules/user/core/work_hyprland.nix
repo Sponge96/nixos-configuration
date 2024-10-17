@@ -5,8 +5,8 @@
     ################
     ### MONITORS ###
     ################
-    monitor=DP-2,preferred,0x0,1
-    monitor=DP-3,preferred,auto-right,1
+    monitor=DP-2,2560x1440@60,0x0,1
+    monitor=DP-3,2560x1440@60,auto-left,1
 
     # See https://wiki.hyprland.org/Configuring/Monitors/
 
