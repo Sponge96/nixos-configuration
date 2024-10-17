@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "sponge";
-  home.homeDirectory = "/home/sponge";
+  home.username = "jack";
+  home.homeDirectory = "/home/jack";
 
   imports = [
     # Core
@@ -23,7 +23,6 @@
     ../modules/user/style/theme.nix
     ../modules/user/style/fonts.nix
     # Applications
-    ../modules/user/applications/firefox.nix
     ../modules/user/applications/discord.nix
     ../modules/user/applications/1password.nix
     ../modules/user/applications/via.nix
@@ -36,9 +35,9 @@
     # Utils
     ../modules/user/utils/unzip.nix
     ../modules/user/utils/zoxide.nix
-    ../modules/user/utils/git.nix
     ../modules/user/utils/typetest.nix
     ../modules/user/utils/bash.nix
+    ../modules/user/utils/git.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -103,9 +102,7 @@
   #
   #  /etc/profiles/per-user/sponge/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = { EDITOR = "helix"; };
-
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  home.sessionVariables = { EDITOR = "helix"; };
   nixpkgs.config.allowUnfree = true;
 }

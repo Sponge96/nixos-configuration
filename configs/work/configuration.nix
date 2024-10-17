@@ -9,10 +9,10 @@
     # Core
     inputs.home-manager.nixosModules.default
     ../modules/system/core/hyprland.nix
-    ../modules/system/core/nvidia.nix
     ../modules/system/core/thunar.nix
+    ../modules/system/core/intel.nix
     # Applications
-    ../modules/system/applications/virtualbox.nix
+    ../modules/system/applications/firefox.nix
     ../modules/system/applications/via.nix
     # Hardware
     ./hardware-configuration.nix
@@ -22,6 +22,8 @@
     ../modules/system/utils/garbage_collection.nix
   ];
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
   # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -53,9 +55,9 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.sponge = {
+  users.users.jack = {
     isNormalUser = true;
-    description = "sponge";
+    description = "jack";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "vboxusers" ];
     packages = with pkgs;
       [
@@ -68,7 +70,7 @@
       inherit pkgs-unstable;
       inherit inputs;
     };
-    users = { "sponge" = import ./home.nix; };
+    users = { "jack" = import ./home.nix; };
   };
 
   # List packages installed in system profile. To search, run:
