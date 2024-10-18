@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, lib, inputs, ... }:
+{ config, pkgs, pkgs-unstable, lib, inputs, profile, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -69,6 +69,7 @@
     extraSpecialArgs = {
       inherit pkgs-unstable;
       inherit inputs;
+      inherit profile;
     };
     users = { "jack" = import ./home.nix; };
   };

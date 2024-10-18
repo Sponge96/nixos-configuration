@@ -10,7 +10,7 @@
     # Core
     ../modules/user/core/kitty.nix
     ../modules/user/core/helix.nix
-    ../modules/user/core/work_hyprland.nix
+    ../modules/user/core/hyprland.nix
     ../modules/user/core/rofi-wayland.nix
     ../modules/user/core/swww.nix
     ../modules/user/core/dunst.nix
