@@ -24,6 +24,8 @@
     ../modules/system/applications/unfree.nix
     ../modules/system/applications/firefox.nix
     ../modules/system/applications/via.nix
+    # Security
+    ../modules/system/security/1password.nix
     # Utils
     ../modules/system/utils/garbage_collection.nix
   ];

@@ -24,7 +24,6 @@
     ../modules/user/style/fonts.nix
     # Applications
     ../modules/user/applications/discord.nix
-    ../modules/user/applications/1password.nix
     ../modules/user/applications/qbittorrent.nix
     ../modules/user/applications/via.nix
     ../modules/user/applications/spotify.nix

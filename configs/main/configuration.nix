@@ -28,6 +28,7 @@
     ../modules/system/applications/flatpak.nix
     ../modules/system/applications/firefox.nix
     # Security
+    ../modules/system/security/1password.nix
     ../modules/system/security/firewall.nix
     # Utils
     ../modules/system/utils/garbage_collection.nix
