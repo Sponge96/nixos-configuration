@@ -1,4 +1,4 @@
-{ ... }:
+{ profile, ... }:
 
 {
   programs.waybar = {
@@ -12,12 +12,24 @@
       height = 30;
       modules-left = [ "clock" "tray" ];
       modules-center = [ ];
-      modules-right =
-        [ "cpu" "temperature" "custom/nvitop" "pulseaudio" "network" ];
+      modules-right = if profile == "main" then [
+        "cpu"
+        "temperature"
+        "custom/nvitop"
+        "pulseaudio"
+        "custom/bluetooth"
+        "network"
+      ] else [
+        "cpu"
+        "custom/resources"
+        "pulseaudio"
+        "custom/bluetooth"
+        "network"
+      ];
       clock = { format = "  {:%H:%M %p   %a %d}"; };
       cpu = {
         interval = 10;
-        format = "  {usage}%";
+        format = "  {usage}<b>%</b>";
       };
       temperature = { format = "  {temperatureC}°C"; };
       tray = {
@@ -45,9 +57,17 @@
         format = " ";
         on-click = "pavucontrol";
       };
+      "custom/bluetooth" = {
+        format = "󰂳";
+        on-click = "blueman-manager";
+      };
       "custom/nvitop" = {
         format = " ";
         on-click = "kitty nvitop --monitor";
+      };
+      "custom/resources" = {
+        format = " ";
+        on-click = "resources";
       };
     }];
     style = ''
@@ -84,7 +104,7 @@
            border-radius: 10px;
            border: 3px solid #000000;
            margin: 4px 2px;
-           padding: 4px 4px;
+           padding: 4px 5px;
         }
 
         #temperature {
@@ -92,7 +112,7 @@
            border-radius: 10px;
            border: 3px solid #000000;
            margin: 4px 2px;
-           padding: 4px 4px;
+           padding: 4px 5px;
         }
 
         #tray {
@@ -100,7 +120,7 @@
            border-radius: 10px;
            border: 3px solid #000000;
            margin: 4px 2px;
-           padding: 4px 4px;
+           padding: 4px 5px;
         }
 
         #network {
@@ -108,7 +128,7 @@
             border-radius: 10px;
             border: 3px solid #000000;
             margin: 4px 2px;
-            padding: 4px 4px;
+            padding: 4px 5px;
         }
 
         #clock {
@@ -116,7 +136,7 @@
             border-radius: 10px;
             border: 3px solid #000000;
             margin: 4px 2px;
-            padding: 4px 4px;
+            padding: 4px 5px;
         }
 
         #pulseaudio {
@@ -124,15 +144,15 @@
             border-radius: 10px;
             border: 3px solid #000000;
             margin: 4px 2px;
-            padding: 4px 4px;
+            padding: 4px 5px;
         }        
 
-        #custom-nvitop {
+        #custom-nvitop, #custom-resources, #custom-bluetooth {
           background: @purple;
           border-radius: 10px;
           border: 3px solid #000000;
           margin: 4px 2px;
-          padding: 4px 4px;
+          padding: 4px 5px;
         }
     '';
   };
