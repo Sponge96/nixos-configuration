@@ -102,7 +102,9 @@
   #
   #  /etc/profiles/per-user/sponge/etc/profile.d/hm-session-vars.sh
   #
-  programs.home-manager.enable = true;
   home.sessionVariables = { EDITOR = "helix"; };
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 }
