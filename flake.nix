@@ -28,10 +28,7 @@
         };
 
         modules = [
-          # Using string interpolation to construct the path with profile variable
           ./configs/${profile}/configuration.nix
-
-          # Including the home-manager module from inputs
           inputs.home-manager.nixosModules.default
         ];
       };

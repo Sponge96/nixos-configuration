@@ -5,78 +5,42 @@
 { config, pkgs, pkgs-unstable, lib, inputs, profile, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
     # Core
+    ../modules/system/core/timezone.nix
     inputs.home-manager.nixosModules.default
+    ../modules/system/core/home_manager.nix
+    ../modules/system/core/experimental.nix
     ../modules/system/core/hyprland.nix
     ../modules/system/core/nvidia.nix
     ../modules/system/core/thunar.nix
-    # Applicaitons
+    # Hardware
+    ./hardware-configuration.nix
+    ../modules/system/hardware/boot.nix
+    ../modules/system/hardware/keymap.nix
+    ../modules/system/hardware/home_network.nix
+    ../modules/system/hardware/sound.nix
+    ../modules/system/hardware/bluetooth.nix
+    # Applications
+    ../modules/system/applications/unfree.nix
     ../modules/system/applications/virtualbox.nix
     ../modules/system/applications/via.nix
     ../modules/system/applications/flatpak.nix
     ../modules/system/applications/firefox.nix
-    # Games
-    ../modules/system/games/steam.nix
-    # Hardware
-    ./hardware-configuration.nix
-    ../modules/system/hardware/grub_boot.nix
-    ../modules/system/hardware/home_network.nix
-    ../modules/system/hardware/sound.nix
     # Security
     ../modules/system/security/firewall.nix
     # Utils
     ../modules/system/utils/garbage_collection.nix
+    # Games
+    ../modules/system/games/steam.nix
   ];
-
-  # flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/London";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sponge = {
     isNormalUser = true;
     description = "sponge";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "vboxusers" ];
-    packages = with pkgs;
-      [
-        # flatpak
-        # gnome.gnome-software
-      ];
-  };
-  home-manager = {
-    extraSpecialArgs = {
-      inherit pkgs-unstable;
-      inherit inputs;
-      inherit profile;
-    };
-    users = { "sponge" = import ./home.nix; };
+    packages = with pkgs; [ ];
   };
 
   # List packages installed in system profile. To search, run:
