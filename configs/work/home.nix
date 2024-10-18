@@ -28,9 +28,9 @@
     ../modules/user/applications/via.nix
     ../modules/user/applications/spotify.nix
     ../modules/user/applications/obsidian.nix
-    ../modules/user/application/remote_desktop.nix
     # Work
     ../modules/user/work/teams.nix
+    ../modules/user/work/remote_desktop.nix
     # Development
     ../modules/user/development/python.nix
     # Utils
