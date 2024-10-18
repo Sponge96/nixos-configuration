@@ -18,7 +18,7 @@
     ../modules/user/core/hyprpicker.nix
     ../modules/user/core/hyprshot.nix
     ../modules/user/core/pavucontrol.nix
-    ../modules/user/core/nvitop.nix
+    ../modules/user/core/resources.nix
     # Style
     ../modules/user/style/theme.nix
     ../modules/user/style/fonts.nix
