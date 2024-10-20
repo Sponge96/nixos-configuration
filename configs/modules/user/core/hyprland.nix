@@ -159,6 +159,16 @@
       ];
 
       windowrulev2 = [ "suppressevent maximize, class:.*" ];
+
+      env = [
+        "XCURSOR_SIZE,24"
+        "XCURSOR_THEME,Dracula"
+        "HYPRCURSOR_SIZE,24"
+        "HYPRSHOT_DIR,/home/sponge/Screenshots"
+        "QT_QPA_PLATFORM,wayland"
+        "QT_QPA_PLATFORMTHEME,qt5ct"
+        "MOZ_ENABLE_WAYLAND,1"
+      ];
     };
 
     extraConfig = if profile == "main" then
