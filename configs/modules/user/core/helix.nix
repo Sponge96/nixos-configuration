@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ nixfmt-classic black ];
+  home.packages = with pkgs; [
+    nixfmt-classic
+    black
+    python312Packages.python-lsp-server
+  ];
   programs.helix = {
     enable = true;
     settings = {
