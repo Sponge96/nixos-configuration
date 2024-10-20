@@ -2,7 +2,9 @@
 
 {
   home.packages = with pkgs; [
+    # Nix
     nixfmt-classic
+    # Python
     black
     python312Packages.python-lsp-server
   ];
