@@ -7,6 +7,8 @@
     # Python
     black
     python312Packages.python-lsp-server
+    # Go
+    gopls
   ];
   programs.helix = {
     enable = true;
@@ -33,6 +35,11 @@
         auto-format = true;
         formatter.command = "black";
         formatter.args = [ "-" "--quiet" "--line-length=79 " ];
+      }
+      {
+        name = "go";
+        auto-format = true;
+        formatter.command = "go fmt";
       }
     ];
   };

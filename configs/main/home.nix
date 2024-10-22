@@ -32,6 +32,7 @@
     ../modules/user/work/teams.nix
     # Development
     ../modules/user/development/python.nix
+    ../modules/user/development/go.nix
     # Utils
     ../modules/user/utils/unzip.nix
     ../modules/user/utils/zoxide.nix
