@@ -28,6 +28,7 @@
     ../modules/user/applications/via.nix
     ../modules/user/applications/spotify.nix
     ../modules/user/applications/obsidian.nix
+    ../modules/user/applications/foliate.nix
     # Work
     ../modules/user/work/teams.nix
     # Development
