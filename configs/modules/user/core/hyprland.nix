@@ -174,6 +174,6 @@
     extraConfig = if profile == "main" then
       "\n      monitor=DP-1,2560x1440@144,0x0,1\n      monitor=DP-3,1920x1080@122,360x-1080,1\n      monitor=Unknown-1,disable\n\n      xwayland {\n        force_zero_scaling = true\n      }\n    "
     else
-      "\n    monitor=DP-2,2560x1440@60,0x0,1\n    monitor=DP-3,2560x1440@60,auto-left,1\n    ";
+      "\n    monitor=DP-2,2560x1440@60,0x0,1\n    monitor=DP-3,2560x1440@60,auto-right,1\n    ";
   };
 }
