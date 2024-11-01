@@ -46,8 +46,13 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ ];
-
+  environment.systemPackages = with pkgs; [ ntfs3g ];
+  boot.supportedFilesystems = [ "ntfs" ];
+  fileSystems."/mnt/speedyboy" = {
+    device = "/dev/nvme0n1p1";
+    fsType = "ntfs";
+    options = [ "rw" "uid=1000" ];
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

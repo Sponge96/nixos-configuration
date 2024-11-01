@@ -10,10 +10,4 @@
     gamescopeSession.enable = true;
   };
   hardware.opengl = { enable = true; };
-  # mounts steamlib drive
-  fileSystems."/mnt/speedyboy" = {
-    device = "/dev/nvme0n1";
-    fsType = "ext4";
-    options = [ "nofail" ];
-  };
 }
