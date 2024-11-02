@@ -18,4 +18,5 @@
     nvidiaSettings = true;
     open = false;
   };
+  boot.kernelParams = [ "nvidia_drm.modeset=1" ];
 }
