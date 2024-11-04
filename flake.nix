@@ -24,7 +24,10 @@
         specialArgs = {
           inherit inputs;
           inherit profile;
-          pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          pkgs-unstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
         };
 
         modules = [
