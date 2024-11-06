@@ -1,5 +1,5 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 
 {
-  home.packages = with pkgs; [ qbittorrent ];
+  home.packages = with pkgs-unstable; [ qbittorrent ];
 }
