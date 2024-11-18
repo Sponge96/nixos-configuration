@@ -149,6 +149,7 @@
 
         # CUSTOM
         "$mainMod, Control_L, exec, hyprshot -m region"
+        "$mainMod, L, exec, hyprlock"
 
       ];
 
