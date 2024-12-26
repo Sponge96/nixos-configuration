@@ -41,6 +41,7 @@
     ../modules/user/utils/git.nix
     ../modules/user/utils/typetest.nix
     ../modules/user/utils/bash.nix
+    ../modules/user/utils/image_viewer.nix
     # Games
     ../modules/user/games/proton.nix
     ../modules/user/games/r2modman.nix
