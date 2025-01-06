@@ -44,7 +44,6 @@
     ../modules/user/utils/image_viewer.nix
     # Games
     ../modules/user/games/proton.nix
-    ../modules/user/games/r2modman.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
