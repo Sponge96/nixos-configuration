@@ -27,7 +27,6 @@
     ../modules/user/applications/discord.nix
     ../modules/user/applications/qbittorrent.nix
     ../modules/user/applications/via.nix
-    ../modules/user/applications/spotify.nix
     ../modules/user/applications/obsidian.nix
     ../modules/user/applications/calendar.nix
     # Work
