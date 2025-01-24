@@ -29,7 +29,7 @@
     ../modules/user/applications/via.nix
     ../modules/user/applications/spotify.nix
     ../modules/user/applications/obsidian.nix
-    ../modules/user/application/calendar.nix
+    ../modules/user/applications/calendar.nix
     # Work
     ../modules/user/work/teams.nix
     # Development
