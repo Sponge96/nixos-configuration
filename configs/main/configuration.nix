@@ -48,6 +48,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [ ntfs3g ];
   boot.supportedFilesystems = [ "ntfs" ];
+  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
   fileSystems."/mnt/speedyboy" = {
     device = "/dev/nvme0n1p1";
     fsType = "ntfs";
