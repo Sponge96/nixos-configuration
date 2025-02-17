@@ -1,8 +1,8 @@
-{ config, lib, pkgs-unstable, ... }:
+{ config, lib, pkgs-unstable, pkgs, ... }:
 
 {
   services.xserver.videoDrivers = [ "nvidia" ];
-  boot.kernelPackages = pkgs-unstable.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages;
   hardware.nvidia = {
     modesetting.enable = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
