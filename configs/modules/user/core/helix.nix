@@ -6,7 +6,7 @@
     nixfmt-classic
     # Python
     black
-    python312Packages.python-lsp-server
+    pyright
     # Go
     gopls
   ];
@@ -35,6 +35,7 @@
         auto-format = true;
         formatter.command = "black";
         formatter.args = [ "-" "--quiet" "--line-length=79 " ];
+        language-servers = [ "pyright" ];
       }
       {
         name = "go";
