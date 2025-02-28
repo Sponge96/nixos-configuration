@@ -29,6 +29,7 @@
     ../modules/user/applications/via.nix
     ../modules/user/applications/obsidian.nix
     ../modules/user/applications/calendar.nix
+    ../modules/user/applications/floorp.nix
     # Work
     ../modules/user/work/teams.nix
     # Development
