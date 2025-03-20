@@ -16,7 +16,7 @@
     ../modules/system/core/thunar.nix
     # Hardware
     ./hardware-configuration.nix
-    ../modules/system/hardware/boot.nix
+    ../modules/system/hardware/grub_boot.nix
     ../modules/system/hardware/keymap.nix
     ../modules/system/hardware/sound.nix
     ../modules/system/hardware/bluetooth.nix
