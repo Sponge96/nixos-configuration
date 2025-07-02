@@ -26,7 +26,6 @@
     ../modules/system/applications/virtualbox.nix
     ../modules/system/applications/via.nix
     ../modules/system/applications/flatpak.nix
-    ../modules/system/applications/firefox.nix
     # Security
     ../modules/system/security/1password.nix
     ../modules/system/security/firewall.nix
@@ -54,6 +53,8 @@
     fsType = "ntfs";
     options = [ "rw" "uid=1000" ];
   };
+  # DOCKER TEMP
+  virtualisation.docker.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
