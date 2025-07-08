@@ -1,8 +1,9 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs;
-    [
-      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" "IosevkaTerm" ]; })
-    ];
+  fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [
+    nerd-fonts.symbols-only
+    nerd-fonts.iosevka-term
+  ];
 }
