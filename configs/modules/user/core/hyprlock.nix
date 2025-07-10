@@ -10,7 +10,7 @@
       }
       input-field {
         monitor =
-        size = 50%, 50%
+        size = 100, 100
         outline_thickness = 3
         inner_color = rgba(0, 0, 0, 0.0) # no fill
 
