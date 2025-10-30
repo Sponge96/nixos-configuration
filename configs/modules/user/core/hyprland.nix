@@ -165,7 +165,10 @@
         "XCURSOR_SIZE,24"
         "XCURSOR_THEME,Dracula"
         "HYPRCURSOR_SIZE,24"
-        "HYPRSHOT_DIR,/home/sponge/Screenshots"
+        (if profile == "main" then
+          "HYPRSHOT_DIR,/home/sponge/Screenshots"
+        else
+          "HYPRSHOT_DIR,/home/jack/Screenshots")
         "QT_QPA_PLATFORM,wayland"
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "MOZ_ENABLE_WAYLAND,1"
