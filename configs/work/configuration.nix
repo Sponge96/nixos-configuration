@@ -24,6 +24,7 @@
     ../modules/system/applications/unfree.nix
     ../modules/system/applications/firefox.nix
     ../modules/system/applications/via.nix
+    ../modules/system/applications/docker.nix
     # Security
     ../modules/system/security/1password.nix
     # Utils
