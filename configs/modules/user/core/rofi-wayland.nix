@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ rofi-wayland ];
+  home.packages = with pkgs; [ rofi ];
   xdg.configFile."rofi/config.rasi".text = ''
     /*Dracula theme based on the Purple official rofi theme*/
 
