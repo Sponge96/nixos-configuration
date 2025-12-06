@@ -29,7 +29,6 @@
     ../modules/user/applications/via.nix
     ../modules/user/applications/obsidian.nix
     ../modules/user/applications/calendar.nix
-    ../modules/user/applications/floorp.nix
     ../modules/user/applications/vlc.nix
     # Work
     ../modules/user/work/teams.nix
@@ -54,12 +53,13 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs;
     [
+      # jdk
       # # Adds the 'hello' command to your environment. It prints a friendly
       # # "Hello, world!" when run.
       # pkgs.hello

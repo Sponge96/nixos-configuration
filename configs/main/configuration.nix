@@ -27,6 +27,7 @@
     ../modules/system/applications/via.nix
     ../modules/system/applications/flatpak.nix
     ../modules/system/applications/docker.nix
+    ../modules/system/applications/firefox.nix
     # Security
     ../modules/system/security/1password.nix
     ../modules/system/security/firewall.nix
