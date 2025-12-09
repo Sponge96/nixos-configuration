@@ -1,9 +1,5 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
-  home.packages = (with pkgs; [ python312 ])
-
-    ++
-
-    (with pkgs-unstable; [ uv ]);
+  home.packages = (with pkgs; [ python312 uv ]);
 }
