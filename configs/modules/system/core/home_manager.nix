@@ -9,8 +9,10 @@
     };
     users = if profile == "main" then {
       "sponge" = import ../../../${profile}/home.nix;
-    } else {
+    } else if profile == "work" then {
       "jack" = import ../../../${profile}/home.nix;
+    } else {
+      "admin" = import ../../../${profile}/home.nix;
     };
   };
 }
