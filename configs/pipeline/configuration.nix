@@ -26,11 +26,12 @@
     description = "admin";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "vboxusers" ];
     packages = with pkgs; [ ];
+    linger = true;
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [ python312 uv ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -39,11 +40,73 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  # FOR LAUNCHER TO BE MODULES LATER
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = true;
   };
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [ 22 2222 ];
+
+  systemd.user.timers = {
+    "r42" = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = "*-*-* 01:00:00";
+        Persistent = true;
+        Unit = "r42";
+      };
+    };
+    "r42_clickup_holiday_sync" = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = "*-*-* 01:00:00";
+        Persistent = true;
+        Unit = "r42_clickup_holiday_sync";
+      };
+    };
+    "r42_clickup_science_sync" = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = "*-*-* 02:00:00";
+        Persistent = true;
+        Unit = "r42_clickup_science_sync";
+      };
+    };
+  };
+
+  systemd.user.services = {
+    "r42" = {
+      path = [ "/run/current-system/sw" ];
+      wantedBy = [ "multi-user.target" ];
+      script =
+        "uv run --directory /home/admin/projects/launcher/scripts hello.py";
+      serviceConfig = {
+        Type = "oneshot";
+        User = "admin";
+      };
+    };
+    "r42_clickup_holiday_sync" = {
+      path = [ "/run/current-system/sw" ];
+      wantedBy = [ "multi-user.target" ];
+      script =
+        "uv run --directory /home/admin/r42/clickup/r42_clickup_holiday_sync r42_holiday_sync.py";
+      serviceConfig = {
+        Type = "oneshot";
+        User = "admin";
+      };
+    };
+    "r42_clickup_science_sync" = {
+      path = [ "/run/current-system/sw" ];
+      wantedBy = [ "multi-user.target" ];
+      script =
+        "uv run --directory /home/admin/r42/clickup/r42_clickup_science_sync gsheet_write.py";
+      serviceConfig = {
+        Type = "oneshot";
+        User = "admin";
+      };
+    };
+  };
 
   # List services that you want to enable:
 

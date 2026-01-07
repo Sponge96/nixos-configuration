@@ -1,4 +1,3 @@
-
 { config, pkgs, pkgs-unstable, inputs, ... }:
 
 {
@@ -12,7 +11,7 @@
     ../modules/user/core/kitty.nix
     ../modules/user/core/helix.nix
     # Development
-    ../modules/user/development/python.nix
+    ../modules/user/development/go.nix
     # Utils
     ../modules/user/utils/unzip.nix
     ../modules/user/utils/zoxide.nix
