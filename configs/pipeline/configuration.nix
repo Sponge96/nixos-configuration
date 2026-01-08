@@ -49,20 +49,12 @@
   networking.firewall.allowedTCPPorts = [ 22 2222 ];
 
   systemd.user.timers = {
-    "r42" = {
-      wantedBy = [ "timers.target" ];
-      timerConfig = {
-        OnCalendar = "*-*-* 01:00:00";
-        Persistent = true;
-        Unit = "r42";
-      };
-    };
     "r42_clickup_holiday_sync" = {
       wantedBy = [ "timers.target" ];
       timerConfig = {
         OnCalendar = "*-*-* 01:00:00";
         Persistent = true;
-        Unit = "r42_clickup_holiday_sync";
+        Unit = "r42_clickup_holiday_sync.service";
       };
     };
     "r42_clickup_science_sync" = {
@@ -70,43 +62,28 @@
       timerConfig = {
         OnCalendar = "*-*-* 02:00:00";
         Persistent = true;
-        Unit = "r42_clickup_science_sync";
+        Unit = "r42_clickup_science_sync.service";
       };
     };
   };
 
   systemd.user.services = {
-    "r42" = {
-      path = [ "/run/current-system/sw" ];
-      wantedBy = [ "multi-user.target" ];
-      script =
-        "uv run --directory /home/admin/projects/launcher/scripts hello.py";
-      serviceConfig = {
-        Type = "oneshot";
-        User = "admin";
-      };
-    };
     "r42_clickup_holiday_sync" = {
       path = [ "/run/current-system/sw" ];
-      wantedBy = [ "multi-user.target" ];
+      # wantedBy = [ "multi-user.target" ];
       script =
         "uv run --directory /home/admin/r42/clickup/r42_clickup_holiday_sync r42_holiday_sync.py";
-      serviceConfig = {
-        Type = "oneshot";
-        User = "admin";
-      };
+      serviceConfig = { Type = "oneshot"; };
     };
     "r42_clickup_science_sync" = {
       path = [ "/run/current-system/sw" ];
-      wantedBy = [ "multi-user.target" ];
+      # wantedBy = [ "multi-user.target" ];
       script =
         "uv run --directory /home/admin/r42/clickup/r42_clickup_science_sync gsheet_write.py";
-      serviceConfig = {
-        Type = "oneshot";
-        User = "admin";
-      };
+      serviceConfig = { Type = "oneshot"; };
     };
   };
+  systemd.user.startServices = true;
 
   # List services that you want to enable:
 
