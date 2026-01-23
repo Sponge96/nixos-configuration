@@ -60,9 +60,17 @@
     "r42_clickup_science_sync" = {
       wantedBy = [ "timers.target" ];
       timerConfig = {
-        OnCalendar = "*-*-* 02:00:00";
+        OnCalendar = [ "*-*-* 02:00:00" "Tue,Wed *-*-* 13:00:00" ];
         Persistent = true;
         Unit = "r42_clickup_science_sync.service";
+      };
+    };
+    "r42_hello" = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = [ "*-*-* 02:00:00" "Tue,Wed *-*-* 13:00:00" ];
+        Persistent = true;
+        Unit = "r42_hello.service";
       };
     };
   };
@@ -70,20 +78,23 @@
   systemd.user.services = {
     "r42_clickup_holiday_sync" = {
       path = [ "/run/current-system/sw" ];
-      # wantedBy = [ "multi-user.target" ];
       script =
         "uv run --directory /home/admin/r42/clickup/r42_clickup_holiday_sync r42_holiday_sync.py";
       serviceConfig = { Type = "oneshot"; };
     };
     "r42_clickup_science_sync" = {
       path = [ "/run/current-system/sw" ];
-      # wantedBy = [ "multi-user.target" ];
       script =
         "uv run --directory /home/admin/r42/clickup/r42_clickup_science_sync gsheet_write.py";
       serviceConfig = { Type = "oneshot"; };
     };
+    "r42_hello" = {
+      path = [ "/run/current-system/sw" ];
+      script =
+        "uv run --directory /home/admin/projects/launcher/scripts/ hello.py";
+      serviceConfig = { Type = "oneshot"; };
+    };
   };
-  systemd.user.startServices = true;
 
   # List services that you want to enable:
 
