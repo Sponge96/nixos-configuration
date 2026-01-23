@@ -94,6 +94,10 @@
         "uv run --directory /home/admin/projects/launcher/scripts/ hello.py";
       serviceConfig = { Type = "oneshot"; };
     };
+    "r42_launcher" = {
+      script = "/home/admin/projects/launcher/launcher";
+      serviceConfig = { Type = "oneshot"; };
+    };
   };
 
   # List services that you want to enable:
