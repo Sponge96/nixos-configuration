@@ -88,6 +88,11 @@
         "uv run --directory /home/admin/r42/clickup/r42_clickup_science_sync gsheet_write.py";
       serviceConfig = { Type = "oneshot"; };
     };
+    "r42_attendance" = {
+      path = [ "/run/current-system/sw" ];
+      script = "uv run --directory /home/admin/projects/r42_attendance main.py";
+      serviceConfig = { Type = "oneshot"; };
+    };
     "r42_hello" = {
       path = [ "/run/current-system/sw" ];
       script =
