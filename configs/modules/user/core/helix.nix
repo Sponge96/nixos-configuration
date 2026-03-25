@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+
   home.packages = with pkgs; [
     # Nix
     nixfmt-classic
@@ -9,7 +10,11 @@
     pyright
     # Go
     gopls
+    # PowerShell
+    powershell
+    powershell-editor-services
   ];
+
   programs.helix = {
     enable = true;
     settings = {
@@ -24,6 +29,7 @@
         select = "underline";
       };
     };
+
     languages.language = [
       {
         name = "nix";
@@ -42,6 +48,15 @@
         auto-format = true;
         formatter.command = "go fmt";
       }
+      {
+        name = "powershell";
+        auto-format = true;
+        language-servers = [ "powershell-editor-services" ];
+      }
     ];
+    languages.language-server."powershell-editor-services" = {
+      command = "powershell-editor-services";
+      args = [ "start" ];
+    };
   };
 }
