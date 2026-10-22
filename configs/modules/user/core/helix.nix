@@ -4,7 +4,7 @@
 
   home.packages = with pkgs; [
     # Nix
-    nixfmt-classic
+    nixfmt
     # Python
     black
     pyright
