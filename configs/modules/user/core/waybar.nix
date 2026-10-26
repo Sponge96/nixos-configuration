@@ -14,6 +14,7 @@
         height = 30;
         modules-left = [
           "clock"
+          "custom/launcher"
           "tray"
         ];
         modules-center = [ ];
@@ -81,6 +82,10 @@
         "custom/resources" = {
           format = " ";
           on-click = "resources";
+        };
+        "custom/launcher" = {
+          format = "󰣆 ";
+          on-click = "rofi -show drun";
         };
       }
     ];
@@ -161,7 +166,7 @@
             padding: 4px 5px;
         }        
 
-        #custom-nvitop, #custom-resources, #custom-bluetooth {
+        #custom-nvitop, #custom-resources, #custom-bluetooth, #custom-launcher {
           background: @purple;
           border-radius: 10px;
           border: 3px solid #000000;
