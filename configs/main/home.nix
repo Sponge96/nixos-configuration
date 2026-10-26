@@ -1,4 +1,10 @@
-{ config, pkgs, pkgs-unstable, inputs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  inputs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -46,7 +52,6 @@
     # Games
     ../modules/user/games/proton.nix
   ];
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -54,30 +59,32 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.11"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs;
-    [
-      # jdk
-      # # Adds the 'hello' command to your environment. It prints a friendly
-      # # "Hello, world!" when run.
-      # pkgs.hello
+  home.packages = with pkgs; [
+    claude-code
+    google-cloud-sdk
+    nodejs
+    # jdk
+    # # Adds the 'hello' command to your environment. It prints a friendly
+    # # "Hello, world!" when run.
+    # pkgs.hello
 
-      # # It is sometimes useful to fine-tune packages, for example, by applying
-      # # overrides. You can do that directly here, just don't forget the
-      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-      # # fonts?
-      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    # # It is sometimes useful to fine-tune packages, for example, by applying
+    # # overrides. You can do that directly here, just don't forget the
+    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+    # # fonts?
+    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-      # # You can also create simple shell scripts directly inside your
-      # # configuration. For example, this adds a command 'my-hello' to your
-      # # environment:
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
-    ];
+    # # You can also create simple shell scripts directly inside your
+    # # configuration. For example, this adds a command 'my-hello' to your
+    # # environment:
+    # (pkgs.writeShellScriptBin "my-hello" ''
+    #   echo "Hello, ${config.home.username}!"
+    # '')
+  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -110,7 +117,20 @@
   #
   #  /etc/profiles/per-user/sponge/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = { EDITOR = "helix"; };
+  home.sessionVariables = {
+    EDITOR = "helix";
+    GOOGLE_CLOUD_PROJECT = "random42-209114";
+    GOOGLE_CLOUD_LOCATION = "global";
+    GOOGLE_APPLICATION_CREDENTIALS = "/home/sponge/.config/gcloud/application_default_credentials.json";
+    CLAUDE_CODE_USE_VERTEX = "1";
+    CLOUD_ML_REGION = "global";
+    ANTHROPIC_VERTEX_PROJECT_ID = "random42-209114";
+    ANTHROPIC_DEFAULT_MODEL = "claude-sonnet-5-5";
+    CLAUDE_CODE_EFFORT_LEVEL = "medium";
+    ANTHROPIC_DEFAULT_OPUS_MODEL = "claude-opus-5-5";
+    ANTHROPIC_DEFAULT_SONNET_MODEL = "claude-sonnet-5-5";
+    ANTHROPIC_DEFAULT_HAIKU_MODEL = "claude-haiku-5-5";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

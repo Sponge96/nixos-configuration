@@ -3,73 +3,87 @@
 {
   programs.waybar = {
     enable = true;
-    settings = [{
-      layer = "top";
-      position = "top";
-      mod = "dock";
-      exclusive = true;
-      passthrough = false;
-      height = 30;
-      modules-left = [ "clock" "tray" ];
-      modules-center = [ ];
-      modules-right = if profile == "main" then [
-        "cpu"
-        "temperature"
-        "custom/nvitop"
-        "pulseaudio"
-        "custom/bluetooth"
-        "network"
-      ] else [
-        "cpu"
-        "custom/resources"
-        "pulseaudio"
-        "custom/bluetooth"
-        "network"
-      ];
-      clock = { format = "  {:%H:%M %p   %a %d}"; };
-      cpu = {
-        interval = 10;
-        format = "  {usage}<b>%</b>";
-      };
-      temperature = { format = "  {temperatureC}°C"; };
-      tray = {
-        icon-size = 20;
-        spacing = 9;
-      };
-      network = {
-        tooltip = true;
-        format-wifi = "  {bandwidthDownBytes}   {bandwidthUpBytes}";
-        format-ethernet = "  {bandwidthDownBytes}   {bandwidthUpBytes}";
-        tooltip-format = ''
-          Network: <big><b>{essid}</b></big>
-          Signal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>
-          Frequency: <b>{frequency}MHz</b>
-          Interface: <b>{ifname}</b>
-          IP: <b>{ipaddr}/{cidr}</b>
-          Gateway: <b>{gwaddr}</b>
-          Netmask: <b>{netmask}</b>'';
-        format-linked = " {ifname} (No IP)";
-        format-disconnected = "  ";
-        tooltip-format-disconnected = "Disconnected";
-        interval = 2;
-      };
-      pulseaudio = {
-        format = " ";
-        on-click = "pavucontrol";
-      };
-      "custom/bluetooth" = {
-        format = "󰂳";
-        on-click = "blueman-manager";
-      };
-      "custom/nvitop" = {
-        format = " ";
-        on-click = "kitty nvitop --monitor";
-      };
-      "custom/resources" = {
-        format = " ";
-        on-click = "resources";
-      };
-    }];
+    systemd.enable = true;
+    settings = [
+      {
+        layer = "top";
+        position = "top";
+        mod = "dock";
+        exclusive = true;
+        passthrough = false;
+        height = 30;
+        modules-left = [
+          "clock"
+          "tray"
+        ];
+        modules-center = [ ];
+        modules-right =
+          if profile == "main" then
+            [
+              "cpu"
+              "temperature"
+              "custom/nvitop"
+              "pulseaudio"
+              "custom/bluetooth"
+              "network"
+            ]
+          else
+            [
+              "cpu"
+              "custom/resources"
+              "pulseaudio"
+              "custom/bluetooth"
+              "network"
+            ];
+        clock = {
+          format = "  {:%H:%M %p   %a %d}";
+        };
+        cpu = {
+          interval = 10;
+          format = "  {usage}<b>%</b>";
+        };
+        temperature = {
+          format = "  {temperatureC}°C";
+        };
+        tray = {
+          icon-size = 20;
+          spacing = 9;
+        };
+        network = {
+          tooltip = true;
+          format-wifi = "  {bandwidthDownBytes}   {bandwidthUpBytes}";
+          format-ethernet = "  {bandwidthDownBytes}   {bandwidthUpBytes}";
+          tooltip-format = ''
+            Network: <big><b>{essid}</b></big>
+            Signal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>
+            Frequency: <b>{frequency}MHz</b>
+            Interface: <b>{ifname}</b>
+            IP: <b>{ipaddr}/{cidr}</b>
+            Gateway: <b>{gwaddr}</b>
+            Netmask: <b>{netmask}</b>'';
+          format-linked = " {ifname} (No IP)";
+          format-disconnected = "  ";
+          tooltip-format-disconnected = "Disconnected";
+          interval = 2;
+        };
+        pulseaudio = {
+          format = " ";
+          on-click = "pavucontrol";
+        };
+        "custom/bluetooth" = {
+          format = "󰂳";
+          on-click = "blueman-manager";
+        };
+        "custom/nvitop" = {
+          format = " ";
+          on-click = "kitty nvitop --monitor";
+        };
+        "custom/resources" = {
+          format = " ";
+          on-click = "resources";
+        };
+      }
+    ];
     style = ''
       @define-color background-darker rgba(30, 31, 41, 0.8);
       @define-color background #282a36;

@@ -1,4 +1,9 @@
-{ pkgs-unstable, inputs, profile, ... }:
+{
+  pkgs-unstable,
+  inputs,
+  profile,
+  ...
+}:
 
 {
   home-manager = {
@@ -7,12 +12,18 @@
       inherit inputs;
       inherit profile;
     };
-    users = if profile == "main" then {
-      "sponge" = import ../../../${profile}/home.nix;
-    } else if profile == "work" then {
-      "jack" = import ../../../${profile}/home.nix;
-    } else {
-      "admin" = import ../../../${profile}/home.nix;
-    };
+    users =
+      if profile == "main" then
+        {
+          "sponge" = import ../../../${profile}/home.nix;
+        }
+      else if profile == "work" then
+        {
+          "jack" = import ../../../${profile}/home.nix;
+        }
+      else
+        {
+          "admin" = import ../../../${profile}/home.nix;
+        };
   };
 }

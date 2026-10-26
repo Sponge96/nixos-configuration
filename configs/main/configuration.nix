@@ -2,7 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, lib, inputs, profile, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  lib,
+  inputs,
+  profile,
+  ...
+}:
 
 {
   imports = [
@@ -42,19 +50,26 @@
   users.users.sponge = {
     isNormalUser = true;
     description = "sponge";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "vboxusers" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "vboxusers"
+    ];
     packages = with pkgs; [ ];
   };
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [ ntfs3g ];
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
   fileSystems."/mnt/speedyboy" = {
     device = "/dev/nvme0n1p1";
     fsType = "ntfs";
-    options = [ "rw" "uid=1000" ];
+    options = [
+      "rw"
+      "uid=1000"
+    ];
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
