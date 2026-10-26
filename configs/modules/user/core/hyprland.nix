@@ -11,8 +11,6 @@
       "$menu" = "rofi -show drun";
       # AUTOSTART
       exec-once = [
-        "awww-deamon &"
-        "awww img ~/.config/swww/Wallpaper.jpeg &"
         "hyprctl setcursor Dracula-cursors 24 &"
         "dunst &"
       ];

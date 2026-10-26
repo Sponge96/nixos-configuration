@@ -19,7 +19,6 @@
     ../modules/user/core/hyprland.nix
     ../modules/user/core/hyprlock.nix
     ../modules/user/core/rofi-wayland.nix
-    ../modules/user/core/swww.nix
     ../modules/user/core/dunst.nix
     ../modules/user/core/waybar.nix
     ../modules/user/core/hyprpicker.nix
