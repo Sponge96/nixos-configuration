@@ -37,18 +37,6 @@
       ];
 
       # ─────────────────────────────────────────────────────────────
-      # GAPS / BORDERS
-      # ─────────────────────────────────────────────────────────────
-
-      # Hyprland border_size = 4
-
-      # Hyprland:
-      # col.active_border = rgb(44475a) rgb(bd93f9) 90deg
-      #
-      # Mango uses a single focus color rather than Hyprland's
-      # gradient border syntax.
-
-      # ─────────────────────────────────────────────────────────────
       # WINDOW APPEARANCE
       # ─────────────────────────────────────────────────────────────
       blur = 1;
@@ -61,26 +49,9 @@
       focused_opacity = 1.0;
       unfocused_opacity = 1.0;
 
-      # Animations - use underscores for multi-part keys
-      animations = 1;
-      animation_type_open = "slide";
-      animation_type_close = "slide";
-      animation_duration_open = 400;
-      animation_duration_close = 800;
 
-      # Or use nested attrs (will be flattened with underscores)
-      animation_curve = {
-        open = "0.46,1.0,0.29,1";
-        close = "0.08,0.92,0,1";
-      };
 
-      # ─────────────────────────────────────────────────────────────
-      # MISC
-      # ─────────────────────────────────────────────────────────────
 
-      # Hyprland's force_default_wallpaper / disable_hyprland_logo
-      # have no Mango equivalent. Mango doesn't display the Hyprland
-      # wallpaper/logo, so these are simply unnecessary.
 
       # ─────────────────────────────────────────────────────────────
       # KEYBINDS
@@ -100,14 +71,11 @@
       # MOUSE
       # ─────────────────────────────────────────────────────────────
 
-      # SUPER + left mouse = move floating window
-      # SUPER + right mouse = resize floating window
       mousebind = [
         "SUPER,btn_left,moveresize,curmove"
         "SUPER,btn_right,moveresize,curresize"
       ];
 
-      # SUPER + mouse wheel = previous/next tag
       axisbind = [
         "SUPER,UP,viewtoleft_have_client"
         "SUPER,DOWN,viewtoright_have_client"
