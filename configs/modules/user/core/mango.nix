@@ -9,14 +9,9 @@
     enable = true;
 
     settings = {
-      warp_cursor = 1;
-      sloppy_focus = 1;
-      focus_on_activate = 1;
+
       xkb_rules_layout = "us";
 
-      # ─────────────────────────────────────────────────────────────
-      # LAYOUT
-      # ─────────────────────────────────────────────────────────────
       monitor_rule =
         if profile == "main" then
           [
@@ -38,19 +33,6 @@
         "id:2,layout_name:monocle"
       ];
 
-      # ─────────────────────────────────────────────────────────────
-      # WINDOW APPEARANCE
-      # ─────────────────────────────────────────────────────────────
-      blur = 1;
-      blur_optimized = 1;
-      blur_params = {
-        radius = 5;
-        num_passes = 2;
-      };
-      border_radius = 6;
-      focused_opacity = 1.0;
-      unfocused_opacity = 1.0;
-
       # Background color of the root window
       root_color = "0x282a36ff";
 
@@ -66,12 +48,7 @@
       # Urgent window border (alerts)
       urgent_color = "0xff5555ff";
 
-      # ─────────────────────────────────────────────────────────────
-      # KEYBINDS
-      # ─────────────────────────────────────────────────────────────
-
       bind = [
-        # "SUPER,Q,spawn,kitty"
         "SUPER,Q,spawn,kitty"
         "SUPER,C,killclient,"
         "SUPER,M,quit"
@@ -83,10 +60,6 @@
         "SUPER,TAB,spawn,hyprshot -m region"
       ];
 
-      # ─────────────────────────────────────────────────────────────
-      # MOUSE
-      # ─────────────────────────────────────────────────────────────
-
       mousebind = [
         "SUPER,btn_left,moveresize,curmove"
         "SUPER,btn_right,moveresize,curresize"
@@ -97,12 +70,6 @@
         "SUPER,DOWN,viewtoright"
       ];
 
-      # ─────────────────────────────────────────────────────────────
-      # ENVIRONMENT
-      # ─────────────────────────────────────────────────────────────
-
-      # HYPRSHOT_DIR isn't useful to Mango itself, but keeping it as
-      # an environment variable means external scripts can still use it.
       env = [
         "XCURSOR_SIZE,24"
         "XCURSOR_THEME,Dracula"
