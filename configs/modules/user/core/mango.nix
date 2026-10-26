@@ -32,8 +32,10 @@
 
       default_master_factor = 0.45;
       center_master_overspread = 1;
+      tag_num = 2;
       tag_rule = [
         "id:1,layout_name:center_tile"
+        "id:2,layout_name:monocle"
       ];
 
       # ─────────────────────────────────────────────────────────────
@@ -65,6 +67,8 @@
         "SUPER,F,spawn,thunar"
         "SUPER,V,togglefloating,"
         "SUPER,S,spawn,rofi -show drun"
+        "SUPER,O,toggleoverview"
+        "SUPER,2,view,2"
       ];
 
       # ─────────────────────────────────────────────────────────────
@@ -77,8 +81,8 @@
       ];
 
       axisbind = [
-        "SUPER,UP,viewtoleft_have_client"
-        "SUPER,DOWN,viewtoright_have_client"
+        "SUPER,UP,viewtoleft"
+        "SUPER,DOWN,viewtoright"
       ];
 
       # ─────────────────────────────────────────────────────────────
