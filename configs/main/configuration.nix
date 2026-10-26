@@ -14,6 +14,7 @@
     ../modules/system/core/hyprland.nix
     ../modules/system/core/nvidia.nix
     ../modules/system/core/thunar.nix
+    ../modules/system/core/mango.nix
     # Hardware
     ./hardware-configuration.nix
     ../modules/system/hardware/boot.nix

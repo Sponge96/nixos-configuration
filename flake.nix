@@ -10,13 +10,23 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mango = {
+      url = "github:mangowm/mango";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      ...
+    }@inputs:
     let
       profile = "work";
       system = "x86_64-linux";
-    in {
+    in
+    {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem rec {
         specialArgs = {
           inherit inputs;
@@ -30,6 +40,7 @@
         modules = [
           ./configs/${profile}/configuration.nix
           inputs.home-manager.nixosModules.default
+          inputs.mango.nixosModules.mango
         ];
       };
     };
