@@ -51,9 +51,20 @@
       focused_opacity = 1.0;
       unfocused_opacity = 1.0;
 
+      # Background color of the root window
+      root_color = "0x282a36ff";
 
+      # Inactive window border
+      border_color = "0x44475aff";
 
+      # Drop shadow when dragging windows
+      drop_color = "0x00000088";
 
+      # Active window border
+      focus_color = "0xbd93f9ff";
+
+      # Urgent window border (alerts)
+      urgent_color = "0xff5555ff";
 
       # ─────────────────────────────────────────────────────────────
       # KEYBINDS
