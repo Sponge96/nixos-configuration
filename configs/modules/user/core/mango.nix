@@ -80,6 +80,7 @@
         "SUPER,S,spawn,rofi -show drun"
         "SUPER,O,toggleoverview"
         "SUPER,2,view,2"
+        "SUPER,TAB,spawn,hyprshot -m region"
       ];
 
       # ─────────────────────────────────────────────────────────────
