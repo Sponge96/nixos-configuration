@@ -8,6 +8,10 @@
   wayland.windowManager.mango = {
     enable = true;
 
+    autostart_sh = ''
+      "dunst &"
+    '';
+
     settings = {
 
       xkb_rules_layout = "us";
