@@ -2,7 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, lib, inputs, profile, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  lib,
+  inputs,
+  profile,
+  ...
+}:
 
 {
   imports = [
@@ -14,6 +22,7 @@
     ../modules/system/core/hyprland.nix
     ../modules/system/core/intel.nix
     ../modules/system/core/thunar.nix
+    ../modules/system/core/mango.nix
     # Hardware
     ./hardware-configuration.nix
     ../modules/system/hardware/grub_boot.nix
@@ -35,7 +44,12 @@
   users.users.jack = {
     isNormalUser = true;
     description = "jack";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "vboxusers" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "vboxusers"
+    ];
     packages = with pkgs; [ ];
   };
 

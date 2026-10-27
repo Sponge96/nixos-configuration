@@ -1,4 +1,10 @@
-{ config, pkgs, pkgs-unstable, inputs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  inputs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -13,13 +19,13 @@
     ../modules/user/core/hyprland.nix
     ../modules/user/core/hyprlock.nix
     ../modules/user/core/rofi-wayland.nix
-    ../modules/user/core/swww.nix
     ../modules/user/core/dunst.nix
     ../modules/user/core/waybar.nix
     ../modules/user/core/hyprpicker.nix
     ../modules/user/core/hyprshot.nix
     ../modules/user/core/pavucontrol.nix
     ../modules/user/core/resources.nix
+    ../modules/user/core/mango.nix
     # Style
     ../modules/user/style/theme.nix
     ../modules/user/style/fonts.nix
@@ -32,6 +38,8 @@
     ../modules/user/work/remote_desktop.nix
     # Development
     ../modules/user/development/python.nix
+    ../modules/user/development/claude.nix
+    ../modules/user/development/google_cloud.nix
     # Utils
     ../modules/user/utils/unzip.nix
     ../modules/user/utils/zoxide.nix
@@ -47,29 +55,29 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.11"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs;
-    [
-      # # Adds the 'hello' command to your environment. It prints a friendly
-      # # "Hello, world!" when run.
-      # pkgs.hello
 
-      # # It is sometimes useful to fine-tune packages, for example, by applying
-      # # overrides. You can do that directly here, just don't forget the
-      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-      # # fonts?
-      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+  home.packages = with pkgs; [
+    # # Adds the 'hello' command to your environment. It prints a friendly
+    # # "Hello, world!" when run.
+    # pkgs.hello
 
-      # # You can also create simple shell scripts directly inside your
-      # # configuration. For example, this adds a command 'my-hello' to your
-      # # environment:
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
-    ];
+    # # It is sometimes useful to fine-tune packages, for example, by applying
+    # # overrides. You can do that directly here, just don't forget the
+    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+    # # fonts?
+    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+
+    # # You can also create simple shell scripts directly inside your
+    # # configuration. For example, this adds a command 'my-hello' to your
+    # # environment:
+    # (pkgs.writeShellScriptBin "my-hello" ''
+    #   echo "Hello, ${config.home.username}!"
+    # '')
+  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -102,7 +110,9 @@
   #
   #  /etc/profiles/per-user/sponge/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = { EDITOR = "helix"; };
+  home.sessionVariables = {
+    EDITOR = "helix";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
