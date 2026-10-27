@@ -62,6 +62,7 @@
         "SUPER,O,toggleoverview"
         "SUPER,2,view,2"
         "SUPER,TAB,spawn,hyprshot -m region"
+        "SUPER,L,spawn,hyprlock"
       ];
 
       mousebind = [
