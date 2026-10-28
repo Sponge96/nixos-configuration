@@ -41,6 +41,8 @@
     # Development
     ../modules/user/development/python.nix
     ../modules/user/development/go.nix
+    ../modules/user/development/google_cloud.nix
+    ../modules/user/development/claude.nix
     # Utils
     ../modules/user/utils/unzip.nix
     ../modules/user/utils/zoxide.nix
@@ -63,9 +65,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    claude-code
-    google-cloud-sdk
-    nodejs
     # jdk
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -118,17 +117,6 @@
   #
   home.sessionVariables = {
     EDITOR = "helix";
-    GOOGLE_CLOUD_PROJECT = "random42-209114";
-    GOOGLE_CLOUD_LOCATION = "global";
-    GOOGLE_APPLICATION_CREDENTIALS = "/home/sponge/.config/gcloud/application_default_credentials.json";
-    CLAUDE_CODE_USE_VERTEX = "1";
-    CLOUD_ML_REGION = "global";
-    ANTHROPIC_VERTEX_PROJECT_ID = "random42-209114";
-    ANTHROPIC_DEFAULT_MODEL = "claude-sonnet-5-5";
-    CLAUDE_CODE_EFFORT_LEVEL = "medium";
-    ANTHROPIC_DEFAULT_OPUS_MODEL = "claude-opus-5-5";
-    ANTHROPIC_DEFAULT_SONNET_MODEL = "claude-sonnet-5-5";
-    ANTHROPIC_DEFAULT_HAIKU_MODEL = "claude-haiku-5-5";
   };
 
   # Let Home Manager install and manage itself.
