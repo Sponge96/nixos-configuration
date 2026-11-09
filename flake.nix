@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    charmbracelet-nur = {
+      url = "github:charmbracelet/nur";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     mango = {
       url = "github:mangowm/mango";
     };

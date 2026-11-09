@@ -43,6 +43,7 @@
     ../modules/user/development/go.nix
     ../modules/user/development/google_cloud.nix
     ../modules/user/development/claude.nix
+    ../modules/user/development/crush.nix
     # Utils
     ../modules/user/utils/unzip.nix
     ../modules/user/utils/zoxide.nix
