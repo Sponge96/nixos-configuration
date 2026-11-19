@@ -10,6 +10,13 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
     ];
+    wlr = {
+      enable = true;
+      settings.screencast = {
+        chooser_type = "simple";
+        chooser_cmd = "${pkgs.slurp}/bin/slurp -f 'Monitor: %o' -or";
+      };
+    };
   };
 
   services.xserver.enable = true;
