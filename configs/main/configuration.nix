@@ -19,7 +19,6 @@
     inputs.home-manager.nixosModules.default
     ../modules/system/core/home_manager.nix
     ../modules/system/core/experimental.nix
-    ../modules/system/core/hyprland.nix
     ../modules/system/core/nvidia.nix
     ../modules/system/core/thunar.nix
     ../modules/system/core/mango.nix
