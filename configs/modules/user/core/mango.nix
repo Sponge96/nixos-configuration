@@ -29,7 +29,7 @@
             "name:^DP-3$,width:2560,height:1440,refresh:60,x:2560,y:0,scale:1"
           ];
 
-      default_master_factor = 0.45;
+      default_master_factor = 0.55;
       center_master_overspread = 1;
       tag_num = 2;
       tag_rule = [
