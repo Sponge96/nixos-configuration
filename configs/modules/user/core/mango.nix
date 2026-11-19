@@ -80,7 +80,6 @@
         "XCURSOR_THEME,Dracula"
 
         "QT_QPA_PLATFORM,wayland"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
         "MOZ_ENABLE_WAYLAND,1"
 
         (

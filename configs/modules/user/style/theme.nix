@@ -15,7 +15,10 @@
     theme.package = pkgs.dracula-theme;
     iconTheme.name = "Dracula";
     iconTheme.package = pkgs.dracula-theme;
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
   };
+  dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   qt = {
     enable = true;
     platformTheme.name = "gtk";
